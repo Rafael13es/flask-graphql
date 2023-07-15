@@ -1,5 +1,5 @@
 """ Models """
-from . import db
+from app import db
 
 
 class Book(db.Model):
@@ -18,6 +18,3 @@ class Book(db.Model):
             'title': self.title,
             'price': self.price
         }
-
-    def hello(self):
-        """Hello"""
