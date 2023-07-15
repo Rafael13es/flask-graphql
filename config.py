@@ -9,7 +9,6 @@ class Config:
     @staticmethod
     def init_app(app):
         """Init method"""
-        pass
 
 
 class DevelopmentConfig(Config):
@@ -19,11 +18,13 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
+    """Testing Config"""
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.getenv("TEST_DATABASE_URL")
 
 
 class ProductionConfig(Config):
+    """Production Config"""
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
 
 
