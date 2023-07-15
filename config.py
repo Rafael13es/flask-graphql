@@ -1,0 +1,36 @@
+"""Project configuration"""
+import os
+
+
+class Config:
+    """Config Class"""
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    @staticmethod
+    def init_app(app):
+        """Init method"""
+
+
+class DevelopmentConfig(Config):
+    """Development Config"""
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = os.getenv("DEV_DATABASE_URL")
+
+
+class TestingConfig(Config):
+    """Testing Config"""
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = os.getenv("TEST_DATABASE_URL")
+
+
+class ProductionConfig(Config):
+    """Production Config"""
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+
+
+config = {
+    "development": DevelopmentConfig,
+    "testing": TestingConfig,
+    "production": ProductionConfig,
+    "default": DevelopmentConfig
+}
