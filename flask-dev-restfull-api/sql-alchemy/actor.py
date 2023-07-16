@@ -1,0 +1,18 @@
+"""Actor DB Model"""
+
+from sqlalchemy import Column, String, Integer, Date
+
+from base import Base
+
+
+class Actor(Base):
+    """Actor Class"""
+    __tablename__ = 'actors'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    birthday = Column(Date)
+
+    def __init__(self, name, birthday):
+        self.name = name
+        self.birthday = birthday
